@@ -1,0 +1,6 @@
+I am synchronous function
+ I am append function
+ I am append function
+ I am append function
+ I am append function
+ I am append function
