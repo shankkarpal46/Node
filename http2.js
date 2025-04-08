@@ -10,15 +10,22 @@ let server = http.createServer((req,res)=>{
 
     f.appendFileSync('detail.txt',d)
 
-    let newurl = url.parse(req.url)
+    let newurl = url.parse(req.url,true)
 
     console.log(newurl)
 
     // if(req.url == '/about'){
     //     res.end("<h1>This is my about page.</h1>")
     // }
+    // if(newurl.pathname =='/about'){
+    //     res.end("<h1>This is my about page.</h1>")
+    // }
+
     if(newurl.pathname =='/about'){
-        res.end("<h1>This is my about page.</h1>")
+        if(req.method == 'post'){
+            res.end(`<h1>This is my about page. Your name is:${newurl.query.id} ${newurl.query.name}</h1>`)
+        }
+        
     }
     else if(req.url == '/contact'){
         res.end("<h1>This is my contact page</h1>")
